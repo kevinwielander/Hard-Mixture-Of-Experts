@@ -1,0 +1,4 @@
+dataset:
+  path: "data/Felidae/train/"
+  extension: "JPEG"
+  img_size: [224, 224]
