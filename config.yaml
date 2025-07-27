@@ -2,3 +2,9 @@ dataset:
   path: "data/Felidae/train/"
   extension: "JPEG"
   img_size: [224, 224]
+
+training:
+  batch_size: 32
+  epochs: 10
+  lr: 0.001
+  wandb_project: "base training for moe"
