@@ -5,7 +5,7 @@ dataset:
 
 training:
   batch_size: 32
-  epochs: 100
+  epochs: 50
   lr: 0.001
   wandb_project: "gater for hard moe"
   best_model_path: "artifacts/"
