@@ -1,5 +1,6 @@
 dataset:
-  path: "data/Felidae/train/"
+  train_path: "data/Felidae/train/"
+  val_path: "data/Felidae/val/"
   extension: "JPEG"
   img_size: [224, 224]
 
@@ -9,5 +10,6 @@ training:
   lr: 0.001
   wandb_project: "gater for hard moe"
   best_model_path: "artifacts/"
+  model_name: "gater"
   patience: 5
   min_delta: 0.0

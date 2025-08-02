@@ -6,20 +6,7 @@ import torch.optim as optim
 import wandb
 from dataloader import CustomDataset
 from models.gater import Gater
-
-
-def load_config(path='config.yaml'):
-    with open(path, 'r') as f:
-        return yaml.safe_load(f)
-
-
-def get_device():
-    if torch.cuda.is_available():
-        return torch.device("cuda")
-    elif torch.backends.mps.is_available():
-        return torch.device("mps")
-    else:
-        return torch.device("cpu")
+from utils.helpers import get_device, load_config
 
 
 def main():
@@ -39,7 +26,7 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=config['training']['lr'])
 
     best_loss = float('inf')
-    best_model_path = config['training']['best_model_path'] + type(Gater).__name__ + '.pth'
+    best_model_path = config['training']['best_model_path'] + config['training']['model_name'] + '.pth'
 
     patience = config['training'].get('patience', 5)
     min_delta = config['training'].get('min_delta', 0.0)

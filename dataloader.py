@@ -5,9 +5,11 @@ from torch.utils.data import Dataset
 
 
 class CustomDataset(Dataset):
-    def __init__(self, config):
+    def __init__(self, config, is_train=True):
         self.config = config
-        self.imgs_path = config['dataset']['path']
+        self.imgs_path = config['dataset']['train_path'] \
+            if is_train \
+            else config['dataset']['val_path']
         file_list = glob.glob(self.imgs_path + "*")
         self.data = []
         for class_path in file_list:
