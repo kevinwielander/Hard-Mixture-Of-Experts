@@ -4,3 +4,7 @@ torch
 glob2
 pyyaml
 wandb
+
+scikit-learn # for kmeans clustering
+
+matplotlib # for visualizations

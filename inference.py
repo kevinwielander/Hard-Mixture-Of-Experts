@@ -7,7 +7,7 @@ from utils.helpers import get_device, load_config
 
 def inference(model_path):
     configuration = load_config()
-    dataset = CustomDataset(configuration)
+    dataset = CustomDataset(configuration, is_train=False)
     dataloader = DataLoader(dataset, batch_size=3, shuffle=True)
     num_classes = len(dataset.class_map)
     device = get_device()
@@ -19,7 +19,6 @@ def inference(model_path):
 
     correct = 0
     total = 0
-    samples = []
 
     with torch.no_grad():
         for i, (imgs, labels) in enumerate(dataloader):
